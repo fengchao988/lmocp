@@ -1,0 +1,1 @@
+package com.snszyk.iiot.marketization.market.domain.transmarket.exception;

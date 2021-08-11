@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1539766523202" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1539766523202" name=""
+             targetNamespace="http://www.activiti.org/testm1539766523202" typeLanguage="http://www.w3.org/2001/XMLSchema">
+    <process id="leave1" name="leave1" isClosed="false" isExecutable="true" processType="None">
+        <startEvent id="_2" name="start"/>
+        <userTask activiti:assignee="${leave.userId}" activiti:exclusive="true" id="_3" name="submit"/>
+        <exclusiveGateway gatewayDirection="Unspecified" id="_4" name="result"/>
+        <userTask activiti:assignee="${leave.approver1}" activiti:exclusive="true" id="_5" name="approve1"/>
+        <exclusiveGateway gatewayDirection="Unspecified" id="_6" name="result"/>
+        <userTask activiti:assignee="${leave.approver2}" activiti:exclusive="true" id="_7" name="approve2"/>
+        <exclusiveGateway gatewayDirection="Unspecified" id="_8" name="result"/>
+        <endEvent id="_9" name="end"/>
+        <sequenceFlow id="_10" sourceRef="_2" targetRef="_3"/>
+        <sequenceFlow id="_11" sourceRef="_3" targetRef="_4"/>
+        <sequenceFlow id="_12" name="y" sourceRef="_4" targetRef="_5">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.submit==true}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="_13" name="n" sourceRef="_4" targetRef="_9">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.submit==false}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="_14" sourceRef="_5" targetRef="_6"/>
+        <sequenceFlow id="_15" name="n" sourceRef="_6" targetRef="_7">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.agree1==true}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="_16" sourceRef="_7" targetRef="_8"/>
+        <sequenceFlow id="_17" name="y" sourceRef="_6" targetRef="_3">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.agree1==false}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="_18" name="n" sourceRef="_8" targetRef="_3">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.agree2==false}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="_19" name="y" sourceRef="_8" targetRef="_9">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.agree2==true}]]></conditionExpression>
+        </sequenceFlow>
+    </process>
+</definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="MaterialDaily" name="MaterialDaily" isExecutable="true">
+    <documentation>材料日报提报流程</documentation>
+    <startEvent id="startEvent1" name="开始"></startEvent>
+    <userTask id="sid-F2A9B97F-E54F-4A31-BC78-AEA7214C3B3C" name="班组材料员提报材料日报" activiti:assignee="wangzhao@qq.com">
+      <extensionElements>
+        <modeler:activiti-assignee-email xmlns:modeler="http://activiti.com/modeler"><![CDATA[wangzhao@qq.com]]></modeler:activiti-assignee-email>
+        <modeler:activiti-idm-assignee xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-assignee>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-50AE39CA-E68D-4D4A-A686-6D0E2B66D2BF" sourceRef="startEvent1" targetRef="sid-F2A9B97F-E54F-4A31-BC78-AEA7214C3B3C"></sequenceFlow>
+    <userTask id="sid-7939CB44-9D07-4B8D-A491-3C4758B2B8F1" name="区队材料员审核" activiti:candidateGroups="1">
+      <extensionElements>
+        <modeler:group-info-name-1 xmlns:modeler="http://activiti.com/modeler"><![CDATA[综掘区队]]></modeler:group-info-name-1>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-A784830B-9E28-4126-AF55-261158117FD8" sourceRef="sid-F2A9B97F-E54F-4A31-BC78-AEA7214C3B3C" targetRef="sid-7939CB44-9D07-4B8D-A491-3C4758B2B8F1"></sequenceFlow>
+    <endEvent id="sid-6C305CD9-EEBF-4D1C-BB3E-4AFA76B35608" name="结束"></endEvent>
+    <sequenceFlow id="sid-747663C2-F55A-4867-A417-9773041C3ACA" sourceRef="sid-7939CB44-9D07-4B8D-A491-3C4758B2B8F1" targetRef="sid-6C305CD9-EEBF-4D1C-BB3E-4AFA76B35608"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_MaterialDaily">
+    <bpmndi:BPMNPlane bpmnElement="MaterialDaily" id="BPMNPlane_MaterialDaily">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="195.0" y="162.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-F2A9B97F-E54F-4A31-BC78-AEA7214C3B3C" id="BPMNShape_sid-F2A9B97F-E54F-4A31-BC78-AEA7214C3B3C">
+        <omgdc:Bounds height="80.0" width="100.0" x="300.0" y="137.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7939CB44-9D07-4B8D-A491-3C4758B2B8F1" id="BPMNShape_sid-7939CB44-9D07-4B8D-A491-3C4758B2B8F1">
+        <omgdc:Bounds height="80.0" width="100.0" x="480.0" y="137.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-6C305CD9-EEBF-4D1C-BB3E-4AFA76B35608" id="BPMNShape_sid-6C305CD9-EEBF-4D1C-BB3E-4AFA76B35608">
+        <omgdc:Bounds height="28.0" width="28.0" x="660.0" y="163.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-A784830B-9E28-4126-AF55-261158117FD8" id="BPMNEdge_sid-A784830B-9E28-4126-AF55-261158117FD8">
+        <omgdi:waypoint x="400.0" y="177.5"></omgdi:waypoint>
+        <omgdi:waypoint x="480.0" y="177.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-50AE39CA-E68D-4D4A-A686-6D0E2B66D2BF" id="BPMNEdge_sid-50AE39CA-E68D-4D4A-A686-6D0E2B66D2BF">
+        <omgdi:waypoint x="225.0" y="177.5"></omgdi:waypoint>
+        <omgdi:waypoint x="300.0" y="177.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-747663C2-F55A-4867-A417-9773041C3ACA" id="BPMNEdge_sid-747663C2-F55A-4867-A417-9773041C3ACA">
+        <omgdi:waypoint x="580.0" y="177.5"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="177.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

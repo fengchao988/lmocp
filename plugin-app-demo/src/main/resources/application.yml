@@ -1,0 +1,25 @@
+server:
+  port: 8089
+spring:
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://fengchao98.f3322.net:3306/iottyys?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://10.113.255.138:3306/lmocp?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    hikari: # springboot 2.0 整合了hikari ,据说这是目前性能最好的java数据库连接池
+    username: root
+    password: 105115Fc
+    initialization-mode: always
+#  liquibase:
+#    change-log: classpath:liquibase/master.xml
+#    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create  # 第一次建表create  后面用update，要不然每次重启都会新建表
+    show-sql: true
+
+
+
+
